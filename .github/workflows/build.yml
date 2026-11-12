@@ -12,15 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v7
 
     - name: Install node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v7
       with:
        node-version: '18.x'
 
     - name: Install Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v7
       with:
         python-version: '3.10'
         architecture: 'x64'
@@ -54,7 +54,7 @@ jobs:
       run: |
         python -m hatch build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       with:
         name: gridstack-package
         path: dist/*.whl
@@ -65,15 +65,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v7
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v8
       with:
         name: gridstack-package
         path: dist
 
     - name: Install Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v7
       with:
         python-version: '3.10'
         architecture: 'x64'
